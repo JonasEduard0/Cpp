@@ -7,8 +7,8 @@ int main()
 {
 	setlocale(LC_ALL, "portuguese");
 
-	/*typedef int numinteiro;
-	std::cout << "Códigos em C++" << endl << "\n";
+	typedef int numinteiro;
+	std::cout << "CÃ³digos em C++" << endl << "\n";
 	system("color 0A");
 	
 	numinteiro vida = 5;
@@ -16,22 +16,22 @@ int main()
 	vida = vida -1 +1 /2 *2;
 
 	printf("Vidas: "); cout << vida << endl;
-	cout << "Endereço que a var Vida ocupa na memória: " << &vida << "\n";
+	cout << "EndereÃ§o que a var Vida ocupa na memÃ³ria: " << &vida << "\n";
 	cout << "Quantos bites pesa a var Vida: " << sizeof(vida) << endl << "\n";
 
 	int numero1, numero2;
-	cout << "Digite 2 números separados por espaço: ";
+	cout << "Digite 2 nÃºmeros separados por espaÃ§o: ";
 	std::cin >> numero1 >> numero2;
-	cout << "Número 1 = " << numero1 << "\n" << "Número 2 = " << numero2 << endl << "\n";
+	cout << "NÃºmero 1 = " << numero1 << "\n" << "NÃºmero 2 = " << numero2 << endl << "\n";
 	
 	double number;
-	cout << "Digite um número: ";
+	cout << "Digite um nÃºmero: ";
 	cin >> number;
 	bool Maiorque100;
 	Maiorque100 = (number > 100);
-	cout << "Se 0, seu número é < 100, se 1, >: " << Maiorque100 << endl;
-	cout << "Seu número está entre 50 e 150?: " << (number >= 50) && (number <= 150);
-	cout<< "\nEle é igual a 0?: " << !(number != 0)<<endl;
+	cout << "Se 0, seu nÃºmero Ã© < 100, se 1, >: " << Maiorque100 << endl;
+	cout << "Seu nÃºmero estÃ¡ entre 50 e 150?: " << (number >= 50) && (number <= 150);
+	cout<< "\nEle Ã© igual a 0?: " << !(number != 0)<<endl;
 	
 	char caractere{ 'c' };
 	std::string Texto{ "Texto string" };
@@ -46,17 +46,6 @@ int main()
 	n1 = n2++;
 	cout << n1 << n2++;
 	n1 = --n2;
-	cout << n1 << --n2 << "\n" << flush()*/
-
-
-
-
-
-
-
-
-
-
-
+	cout << n1 << --n2 << "\n" << flush()
 
 	system("PAUSE");return 0;}
