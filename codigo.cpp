@@ -46,6 +46,27 @@ int main()
 	n1 = n2++;
 	cout << n1 << n2++;
 	n1 = --n2;
-	cout << n1 << --n2 << "\n" << flush()
-
+	cout << n1 << --n2 << "\n";
+		
+	string nome;
+	int senha;
+	cout << "\n\nDigite seu nome: ";
+	cin >> nome;
+	if (nome == "Jonas")
+	{
+		cout << "Esse é meu nome! \n\n";
+		cout << " Digite a senha: ";
+		cin >> senha;
+		if (senha == 123 && nome == "Jonas")
+		{
+			cout << " Senha correta! ";
+		}
+	}
+	else if (nome == "Eduardo") {
+		cout << "Apenas o primeiro nome, tente novamente.";
+	}
+	else {
+		cout << " Não é meu nome \n\n";
+	}
+		
 	system("PAUSE");return 0;}
