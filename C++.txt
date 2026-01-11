@@ -1,0 +1,722 @@
+				C++
+Mouse 2 em uma variável > Renomear | Renomeia uma var e substitui em todos seus usos.
+Há o comentário de uma linha(//) ou o de várias linhas(/*...*/).
+
+
+	Header file
+O arquivo.h é onde ficam as declarações de funções e classes POO, onde com #include "arquivo.h", no código .cpp, podemos incluir esse código ao nosso.
+
+
+	Tipos de variáveis
+int	     | Número inteiro. Ocupa 4 bytes na memória RAM.
+char 	     | Um único caractere, entre aspas simples ''. Ocupa 1 byte na memória RAM.
+string	     | Texto, entre aspas duplas "".
+bool 	     | Retorna 1 para true(verdadeiro) e 0 para false.
+float/double | Números quebrados com casas decimais. Double armazena mais casas. 
+void() 	     | Não possui tipo nem retornará valor algum.
+
+
+	Operadores lógicos
+!   | Retorna o contrario do verdadeiro. Se true, retorna false.
+&&  | Todas afirmações têm que ser true para retornar true, 'e'.
+||  | Se um dos valores for true, todo código será considerado true, 'ou'.
+
+
+	Estrutura do código
+
+#include <iostream>			 | inclua as bibliotecas aqui.
+using namespace std; 	 	 	 | Tira a necessidade de colocar 'std::' no código, mas pode conflitar em grandes projetos.
+...(struct, funções, classes,globals)
+					 
+int main(){system("cls");		 | Função principal onde a maioria do código vai dentro. 'cls' limpa terminal.
+    	setlocale(LC_ALL, "portuguese"); | Permite o uso de acentuações da língua portuguesa com o <locale.h>
+	...
+return 0;}    	 	 		 | Retorna para o S.O., 0 indica que tudo está correto, sempre no fim do código.
+
+
+	Includes
+São diretivas de pré-processamento que incluem um código e novas funções, quase uma biblioteca.
+Importantes: #include <iostream>, <locale.h> que permite o código: setlocale(LC_ALL, "portuguese");  <string> para tratamento de strings; <cmath> para operações matemáticas e <vector> que permite a criação de vetores dinâmicos.
+
+| #include "funcoesmenu.h" | Quando entre "", exporta um código seu da mesma pasta do projeto, normalmente funções.
+
+
+	C in e C out
+
+| std::count <<"txt";
+Printa o texto/código especificado. Sai uma informação. Sinal de menor <.
+
+| int numero1; 					  //Cria a(s) variável.
+  std::cout << "Digite o(s) número(s): "; 	  //Pede um número ao usuário.
+  std::cin >> numero1; 			          //A variável recebe o valor com cin, sinal de maior >.
+  std::cout << "Numero = " << numero1 << endl; |  //Printa "Numero = (var)".
+
+
+	Variáveis e Constantes
+Variáveis, constantes e tipos de variáveis são chamados de literais e se declaram com (), =, ou até {}.
+Valores escalares são vetores, enumerações e etc, se declaram com {}.
+
+Variáveis globais são aquelas declaradas antes de main(), e é acessível em qualquer função. Consomem mais.
+Variáveis locais são criadas dentro de uma função, if ou laços, portanto só são acessíveis dentro desse bloco de código.
+Variáveis estáticas têm escopo local mas com o modificador static string "varestatica" ela continua para além do bloco.
+
+| int variável(10); const string constante = 'texto fixo' |
+Variável possibilita a mudança de seu valor, constante possui valor fixo.
+
+
+	Formatação
+
+| int num{10}; std::string Texto{"Texto string"};
+  std::printf("Valor de num = %d, valor de Texto = %s", num, Texto.c_str()); |
+
+Substitui %d pela variavel int após a vírgula. Funciona com os tipos:
+int -> %d, float -> %f, double -> %lf, char -> %c, string -> %s.
+
+Observe q string é considerado classe, então, na sua referência no printf, deve colocar .c_str().
+
+
+	Comandos importantes
+
+| std::endl; | "\n"   | Quebra de linha. endl esvazia o buffer de saída quando chamado e tem desempenho pior.
+
+| std::flush;	      | Se utilizado o "\n" ao invés do endl, é bom utilizá-lo para esvazia o buffer de saída.
+
+| &var 		      | Endereço hexadecimal que a variável ocupa.
+
+| sizeof(var) 	      | Tamanho que a variável ocupa.
+
+| system("...");      | Chama o shell do Windows e digita o código de dentro. pause, dir, color, etc.
+
+| system(“color XX”); | 
+Altera cor de fundo e cor da letra. Ex.: console preto e letra verde: system("COLOR 0A");
+Cores: 0 -> preto, 1->azul, 2 -> verde, 3 -> verde-água, 4 -> vermelho, 5 -> roxo, 6 -> amarelo, 7 -> branco, 
+8 -> cinza, 9 -> azul-claro, A -> verde, B -> verde-água, C -> vermelho, D -> lilás, E -> amarelo, F -> branco.
+
+| typedef tipodado apelido; |
+Cria um apelido para um tipo de dado. Ex: typedef int inteiro.
+
+
+	Incremento e decremento 
+
+| int n1{10}, n2{20};
+  n1 = n2++; |
+n1 recebe o valor 20, após isso, n2 acrescenta(++) ou diminui(--) 1 no valor, virando 21 ou 19. Incremento/decremento pós-fixado.
+
+| n1 = --n2; |
+n2 acrescenta(++) ou diminui(--) 1 no valor, virando 21 ou 19, depois n1 recebe o valor novo de n2. Incremento/decremento pré-fixado.
+
+
+	Estrutura condicional / Operador ternário / Seleção condicional
+
+ if (nome == "Jonas"){	      | Estrutura condicional simples.
+    cout<<"Meu nome";}        | Se a condição for true, o bloco é executado.	
+ else if (nome == "Eduardo"){ | Estrutura condicional aninhada.
+    cout<<"Sobrenome";}       | Ou se esta for true, será executada.
+ else{                        | Estrutura condicional composta .
+    cout<<"Não é meu nome";}  | Se nenhum anterior, este será executado.
+
+| int n1 = 0;
+  n1 > 5 ? cout << "n1 é maior q 5" : cout << "n1 é menor q 5"; |
+ Condição(?)      Caso true               (:)Caso false
+
+| int num;
+  cout << "Escolha 1 ou 2: ";
+  cin >> num;
+  switch (num){
+case 1 : cout << "Escolheu 1!";
+	break;
+case 2 : cout << "Escolheu 2!";
+	break;
+default: cout << "1 ou 2 não foram escolhidos.";
+	break;} |
+Switch Case é bom usar para números ou caracteres, defalt seria o else.
+
+
+	Estruturas de repetição 
+	         While
+
+| contador = 0             
+  while (contador < 10){ 
+      std::cout << contador);
+      contador ++;} |
+Enquanto contador for < 10, o bloco é executado repetidamente até o contador = 10.
+
+| int cont{ 11 };
+  do{
+     cout << cont << " ";
+     ++cont;
+} while (dw<10); |
+Realiza o comando enquanto cont for < 10, mesmo que esteja fora da condição, executa ao menos uma vez.
+
+		For e for each
+
+| int soma = 0;
+  for (int i = 1; i <= 10; i++){
+	soma = soma + i;}
+  cout << "A soma dos números de 1 a 10 é " << soma; |
+Enquanto i for <= 10, realiza o código.
+
+| int foreache[]{ 10,20,30,40,50 };	| Útil para arrays.
+for (auto dez : foreache){		| auto=detecta o tipo. 
+	cout << dez << "\n";}		| Variável local 'dez' recebe cada valor(:) de foreach e é printado.
+
+
+	Funções
+
+| int somaumnumero(int somado1, int somado2) {
+      return somado1 + somado2;}
+  int main(){
+    int somado1 = 5, somado2 = 10;
+    cout << "A soma da função é: " << somaumnumero(somado1, somado2);...} |
+Funções servem para não escrever o mesmo código várias vezes, chamamos a função sempre q precisarmos.
+
+| void vazio(){} | Uma função sem tipo, quando não retorna valor, apenas preenche.
+
+
+	Ponteiro e Aritmética de ponteiros
+
+| int apontado{ 4096 }; int* ptr = &apontado; |
+Uma variável onde é armazenado o primeiro endereço de memória(&) de outra variável int. Como cada var tem 4 bytes, possui 4 &, mas o ponteiro armazena apenas um.
+
+| void* ptrg; |
+Ponteiro genérico se usa quando não há ainda um tipo para apontar.
+Depois pode especificar o tipo por meio de cast(transformar valores): | *(char*)ptrg; |
+
+| int vetpont[]{ 1,23,-78,900,234 }; 	   | Aritmética de pnt. é usado em vetores.
+  int* pontvet = vetpont;	     	   | Cada valor int do vetor tem 4bytes, 4 endereços por valor.
+  for (int i = 0; i < 5; i++){	     	   | Ponteiro pega o 1º endereço do 1º valor.
+    cout << pontvet[i];} //ou *(vetpont+1) | Printa o valor da posição de i do vetor q ponteiro aponta.
+
+
+	Referência
+
+| int num{2000}; int &ref = num; |
+É um alias(apelido) para variáveis existentes, apenas faz referência a outros, permitindo trocar valores.
+Não possui endereço próprio pois não é variável, seu endereço é o mesmo do referenciado.
+
+
+		Vetores
+	Array
+Array: Quando for apenas uma linha. Ex: | array[0] = 3 | 1 linha, posição 0 recebe 3.
+
+| float notas[]{1,2,3,4,5}; | Pode iniciar passando só tamanho, passando só valores ou ambos.
+  int i = 1;		    | Se inicia na posição 0. Como nota[] recebe 5 valores, vai de 0 à 4 posições.
+  notas[2] = 10;	    | 
+  notas[i + 2] = 9.8;  	    | 
+  notas[4] = notas[0] - 2;  | 
+
+	Matriz
+Matriz: Possui 2 ou mais dimensões. Ex: | matriz[3][2]  | 3 linhas e 2 colunas.
+| int matriz[5][5];
+  for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+	  if (i < j) {
+	      cout << " 1 ";}
+	  else if (i == j) {
+	      cout << " 0 ";}
+	  else{
+       	      cout << "-1 ";}}} |
+
+	Vetor dinâmico
+Com a diretiva <vector>, é possível criar arrays com tamanho alterável.
+
+| vector<float>vetordinamico = {1,2,3};	| Cria uma array float e já atribui valores.
+  vetordinamico.push_back(4);		| Adiciona o número 4 á array.
+
+| int* numeros = new int[tamanho]; | Ou cria-se dessa forma. 
+
+
+	Recursividade
+Uma alternativa para laços, consiste em uma função chamar ela mesma 
+| int soma(int  n){
+	if(n == 1){
+	    return 1;}
+	else{
+	    return n + soma(n-1);}} |
+
+
+		Struct(Estrutura)
+Parecido com class, mas por padrão as variáveis são public. Modelo de criação de variáveis que não ocupa espaço na memória.
+| struct Data{
+     int dia, mes;
+     float ano;};...
+
+  Data agenda;
+  agenda.dia = 22;
+  agenda.mes = 07;
+  agenda.ano = 2013;
+  cout << "Dia: " << agenda.dia; |
+
+	Método
+Consiste em uma função dentro de uma struct ou class.
+| struct ContaBanco{
+    float saldo = 0;
+    int numeroConta = 001;
+    void deposito(){
+        cout << "\nAdicione um valor para o deposito: "; cin >> saldo;}
+    void saque(){
+        float sacar = 0;
+        cout << "Informe o valor do saque: "; cin >> sacar; saldo -= sacar;}}; 
+  int main(){
+     ContaBanco cb;
+     cb.deposito();
+     cb.saque();
+     cout << "Seu saldo e " << cb.saldo;|
+
+
+		Programação Orientada a Objeto(POO)
+Ao contrário da Programação Estruturada, gira em torno de classes e não funções, baseado na análise bottom-up e não na top-down.
+Herança: transmissão de recursos de uma superclasse/classe base pra classe filha/subclasse.
+
+Classe: é o molde que serve de base para criar/instanciar objetos. Ex: receita ou planta de construção.
+Objeto: é instanciado/criado a partir da classe. Ex: bolo ou casa construída.
+Atributos(Propriedades): são as variáveis que caracterizam um objeto.
+Métodos(Funções): os comportamentos do objeto, como ele funciona.
+
+| class Pessoa{	          	  | Declara a classe no .h
+  private:		          	  | Por padrão, já é private. Diz que só pode ser acessado no código da classe.
+  	int idade;	          	  | Atributos.
+	string nome;	      
+  public:		          	  		  | Permite o código ser usado fora da classe.
+	Pessoa();			  	  		  | Construtor: nome=classe, inicializa variáveis.
+	~Pessoa();				  		  | Destrutor.
+
+	Pessoa(const Pessoa& outra); 	  | Construtor de cópia,usado pra criar um novo objeto a partir de outro, chamado automaticamente.
+    void copiar(const Pessoa& outro); | Método comum,usado pra copiar dados para um objeto já existente, chamado manualmente.
+	void copia(Pessoa outra);		  | Necessário para a ListaContigua desta classe.
+
+    void imprimir();  | Imprime dados.
+    void preencher(); | Pede para preencher.
+	
+	void setIdade(int idade); | Métodos. "void setXx" permite atualizar o valor na main.
+	int getIdade();};		  | "get" pega o valor e permite printar.
+
+ Pessoa::Pessoa() {						| Antes de main, no objeto.cpp
+	nome = ""; idade = 0; sexo = '\0';} | Zera os valores dos atributos.
+ Pessoa::~Pessoa() {
+    cout << "O objeto " << nome << " foi destruido.";} | No fim, destrói objetos para evitar leaks.
+
+ void Pessoa::setIdade(idade) { this->idade = idade; } | Define o atributo na main.
+ int Pessoa::getIdade() { return idade; } 			   | Printa o atributo.
+
+ Pessoa::Pessoa(const Pessoa &outra) { | 'const' diz que o original não pode ser alterado.
+    idade = outra.idade;			   | Pega o valor do objeto e cria outro com o mesmo valor.
+    nome = outra.nome;} 				
+
+ void Pessoa::copiar(const Pessoa &outro) { 
+    idade = outro.idade;	| Pega o valor do objeto e coloca em um ja criado.
+    nome = outro.nome;}		
+
+ void Pessoa::imprimir() {
+    cout << "Nome: " << nome << endl;
+    cout << "Idade: " << idade << endl;} | Imprime os atributos.
+
+ void Pessoa::preencher() {
+    cout << "Nome: "; cin >> nome;
+    cout << "Idade: "; cin >> idade;}
+
+ void Pessoa::copia(Pessoa outra) {    | Para ListaContigua.
+    this->nome = outra.getNome();... } | Copia o atributo do proximo elemento.
+
+
+	Lista Contígua
+| class ListaContigua {
+    int tam, quant; 	| L.C. deve ter tamanho e quantidade de elementos dentro.
+    Livros *lista;  	| Cria um vetor dinâmico com o nome da classe do objeto a ser inserido.
+public:
+    ListaContigua();
+    ~ListaContigua(); 
+
+    ListaContigua(int tam);   | Construtor de sobrecarga(2º construtor), apenas para inserir o tam na lista.
+
+    void shiftEnd(int index); | Aumenta +1 a posicao dos elementos a partir do index(posicao q quer pôr o elemento).
+    void insert(Livros l, int index); }; | Insere o objeto 'l' e atributos na posicao 'index'.
+	void shiftFront(int index); | Sobrescreve o index com o próximo elemento, e diminui a posicao dos proximos -1.
+    void remove(int index); 	| Remove o elemento do index, mas fica lixo.
+
+    void imprime();
+
+	int buscaBinaria(int cpfProcurado); | Em lista ordenada do menor para o maior, divide pela metade e procura.
+    int bubbleSort(int cpfProcurado);   | Tipo de ordenação, percorre a lista comparando elementos e trocando se estiverem na ordem errada.
+
+	int proximocirc(int n);
+	int anteriorcirc(int n); }
+
+ ListaContigua::ListaContigua() {
+    tam = 0;
+    quant = 0; } |
+
+ ListaContigua::ListaContigua(int tam) {
+    this->tam = tam;				| Recebe o valor de tam do outro construtor.
+    this->quant = 0;
+    this->lista = new Livros[tam];} | Cria uma lista com tamanho tam já definido do outro construtor.
+
+ void ListaContigua::insert(Pessoa l, int index) { | Objeto 'l' inserido na posicao 'index'.
+    if (quant < tam) {          | Ou seja, se ainda tiver espaco na lista...
+        shiftEnd(index);        | Aumenta +1 a posição a partir do index.
+        lista[index].copia(l);  | Copia 'l' e põe no index.
+        quant++;                | Aumenta um elemento na lista.
+    } else {
+        cout << "Lista cheia";} | Se já estiver cheia.
+
+ void ListaContigua::shiftEnd(int index) { | Percorre do final da lista ao index aumentando +1 a posicao do elemento analisado .
+    for (int i = quant; i >= index; i--) {  | Quando i=index, aumenta a posição de todos, até lá, como está na posição máxima, diminui -1 até o index.
+        lista[i].copia(lista[i-1]);}}       | Copia o que está atrás e é levado a frente.
+
+ void ListaContigua::shiftFront(int index) {
+    for (int i = index; i < quant -1; i++) {   | Procura o index a partir do início da lista.
+        lista[i] = lista[i+1]; }} 			   | A partir de index, sobrescreve o elemento atual pelo próximo.
+
+void ListaContigua::remove(int index) { | Remove o elemento do index, deixando vazio.
+    if (quant > 0) {
+        shiftFront(index); 				| Executa shiftFrot para diminuir a posição do próximo elemento, tirando o buraco no meio.
+        quant--;        				| Diminui a quantidade de elementos.
+    } else {
+        cout << "Lista vazia"; }} 		| Se lista vazia.
+
+ void ListaContigua::imprime() {
+    for (int i = 0; i < quant-1; i++) { | Para cada elemento da lista,
+        lista[i].imprimir(); }}         |usa o metodo imprimir da classe Pessoa para imprimir cada um.
+
+int ListaContigua::bubbleSort(int cpfProcurado) {
+    int indexFinal = quant - 1;
+    while (indexFinal > 0) {
+        for (int i = 0; i <= indexFinal-1; i++) {
+            if (lista[i].getCpf() > lista[i+1].getCpf()) {
+                Pessoa temp = lista[i]; //temp permite a troca dos valores.
+                lista[i] = lista[i+1];
+                lista[i+1] = temp;
+            }}
+        indexFinal--; }}
+
+int ListaContigua::busca(int cpfProcurado) {
+    for (int i = 0; i <= quant-1; i++) {
+        if (lista[i].getCpf() == cpfProcurado) {
+            return i;}}
+    return -1;}
+    
+int ListaContigua::buscaBinaria(int cpfProcurado) {
+    int inicio = 0;
+    int fim = tam - 1;
+    int meio;
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
+        if (lista[meio].getCpf() == cpfProcurado)
+            return meio;
+        else if (cpfProcurado < lista[meio].getCpf()) {
+            fim = meio - 1;
+        } else {
+            inicio = meio + 1; }}
+    return -1;}
+
+int ListaContigua::proximocirc(int n) {
+    if (n >= 0 && n <= tam-1) {//Nao teria sucessor se fosse contigua comum, return-1.
+        if (n == tam-1) {   //Mas e circular, entao o sucessor do ultimo e o primeiro.
+            return 0;
+        } else{
+            return n+1; }}
+}
+
+int ListaContigua::anteriorcirc(int n) {
+    if (n >= 0 && n <= tam-1) {
+        if (n = 0) {
+            return tam -1;
+        } else{
+            return n-1; }}
+}
+
+
+	Lista Encadeada
+Outra estrutura de armazenar/manipular dados além da contígua. Pelo cliente, saberemos qual mais apropriado.
+Não aloca memoria com espaços sequenciais, aqui cada espaço(nó) está em um local diferente na ram.
+Nao tem tam, so quant(quantos nós) e head(ponteiro que aponta pro primeiro nó).
+Um nó/nodo/espaço é composto por um item q vc armazena e um apontador pro proximo nó.
+
+| class Nodo {
+  private:
+    Pessoa item; | Passa objeto Pessoa pro item dentro do nodo.
+    Nodo* prox;  | Ponteiro prox aponta pro proximo item da lista.
+public:
+    Nodo();
+    Nodo(const Pessoa &p); | Const. copia q recebe um objeto Pessoa.
+    ~Nodo() {};
+
+    Pessoa getItem();         | Retorna oq estiver armazenado.
+    void setItem(Pessoa &p);  | Altera uma Pessoa p.
+    void setProx(Nodo* prox); | Define o próximo nodo.
+    Nodo* getProx();          | Retorna o próximo nodo.
+};
+
+Nodo::Nodo() {
+    prox = NULL;
+}
+
+Nodo::Nodo(const Pessoa &p) {
+    prox = NULL;
+    item = p;    | Copia o objeto Pessoa passado por referência
+}
+
+void Nodo::setProx(Nodo* prox) { | 
+    this->prox = prox;
+}
+
+Nodo* Nodo::getProx() { | 
+    return prox;
+}
+
+Pessoa Nodo::getItem() { | 
+    return item;
+}
+
+void Nodo::setItem(Pessoa &p) { | Copia o objeto Pessoa recebido
+    this->item = p;
+}
+
+class Encadeada { | Estrutura q gerencia os nós.
+private:
+    int quant;    | Quantidade de elementos/espaços da lista.
+    Nodo* head;   | Ponteiro head aponta pro primeiro nó.
+public:
+    Encadeada();
+    ~Encadeada() {};
+
+    void insertE(Pessoa &p); | Insere um novo nó p no início.
+    void removeE();          | Remove o primeiro nó.
+
+    void insertpos(int n, Pessoa &p); | Inserir em uma posição específica.
+    void removepos(int n);            | Remover uma posicao especifica.
+
+    Nodo* getElemento(int n); 		  | Pega endereço do elemento desejado,é a busca da lista encadeada.
+
+	Nodo* proximoE(int n);
+	Nodo* anteriorE(int n);
+};
+
+Encadeada::Encadeada() {
+    quant = 0;
+    head = NULL; | Zera os atributos pois ainda nenhum nó.
+}
+
+void Encadeada::insertE(Pessoa &p) { //
+    Nodo* novo = new Nodo(); | Cria novo nó.
+    novo->setItem(p);        | Insere p no novo no.   
+    novo->setProx(head);     | O novo nó passa a apontar para o antigo primeiro
+    head = novo;             | head agora aponta pro primeiro e novo nó da lista.
+    quant++;
+}
+
+void Encadeada::removeE() {
+    head = head->getProx(); | Pra remover da lista, basta ninguém apontar pra ele,o 2º nó vira 1º.
+    quant--;
+}
+
+void Encadeada::insertpos(int n, Pessoa &p) {
+    Nodo* novo = new Nodo();
+    novo->setItem(p);
+    Nodo* anterior = this->getElemento(n -1); | Pega a posiçao do nodo anterior.
+    novo->setProx(anterior->getProx());       | O novo no pega o endereço/posicao do proximo.
+    anterior->setProx(novo);                  | O nodo anterior agora tem o endereço do novo.
+    quant++;
+}
+
+void Encadeada::removepos(int n) {
+    Nodo* anterior = this->getElemento(n-1); | Define e pega o nodo anterior do excluido.
+    Nodo* excluido = anterior->getProx();    | Pega o endereço do excluido do prox do anterior.
+    anterior->setProx(excluido->getProx());  | Agora o anterior guarda o endereço do da frente do excluido.
+    quant--;
+}
+
+Nodo* Encadeada::getElemento(int n) { | Retorna endereço do elemento buscado n.
+    Nodo *p = head; 						   | Cria um apontador pro head(q aponta pro 1º).
+    int i = 1;      						   | Conta quntas vezes andou até elemento.
+    while (i <= n-1 && p->getProx() != NULL) { | 1 até o anterior do buscado, pois ele q tem o endereço.
+        p = p->getProx(); | Copia endereço do proximo.
+        i++;
+    } if (i == n) { 	  | Quanto elemento buscado = contador
+        return p;   	  | retorna endereço.
+    } else {
+        return NULL;
+}}
+
+Nodo *Encadeada::proximoE(int n) {
+    if (n <= quant-1) {
+        Nodo* proximo = this->getElemento(n+1);
+        return proximo;
+    } else{
+        return head; }
+}
+
+Nodo* Encadeada::anteriorE(int n) {
+    if (n >= 2) {
+        Nodo* anterior = this->getElemento(n-1);
+        return anterior;
+    } else{
+        Nodo* ultimo = this->getElemento(quant);
+        return ultimo; }
+}
+
+
+	Lista Duplamente encadeada
+Parecido, mas um nodo tem |endereço do anterior|,item,endereço do proximo.
+
+class NodoDuplo {
+    Pessoa item;
+    NodoDuplo* prox;
+    NodoDuplo* ant;  | Agora, aponta tambem pro anterior.
+public:
+    NodoDuplo();
+    NodoDuplo(const Pessoa &p);
+    ~NodoDuplo() {};
+
+    Pessoa getItemD();
+    void setItemD(Pessoa &p);
+    NodoDuplo* getProxD();
+    void setProxD(NodoDuplo* prox);
+    NodoDuplo* getAnt();           | Retorna o nodo anterior.
+    void setAnt(NodoDuplo* ant);   | Define o endereço do anterior.
+};
+
+NodoDuplo::NodoDuplo() {
+    prox = NULL;
+    ant = NULL;
+}
+
+NodoDuplo::NodoDuplo(const Pessoa &p) {
+    prox = NULL;
+    ant = NULL;
+    item = p;
+}
+
+void NodoDuplo::setAnt(NodoDuplo* ant) {
+    this->ant = ant;
+}
+
+NodoDuplo* NodoDuplo::getAnt() {
+    return ant;
+}
+
+void NodoDuplo::setProxD(NodoDuplo* prox) {
+    this->prox = prox;
+}
+
+NodoDuplo* NodoDuplo::getProxD() {
+    return prox;
+}
+
+Pessoa NodoDuplo::getItemD() {
+    return item;
+}
+
+void NodoDuplo::setItemD(Pessoa &p) {
+    this->item = p;
+}
+
+class DuploEncadeada {
+private:
+    int quant;
+    NodoDuplo* head;
+public:
+    DuploEncadeada();
+    ~DuploEncadeada() {};
+
+    void insertD(Pessoa &p);
+    void removeD();
+
+    void insertposD(int n, Pessoa &p);
+    void removeposD(int n);
+
+    NodoDuplo* getElementoD(int n);
+	
+	NodoDuplo* proximocircD(int n);
+	NodoDuplo* anteriorcircD(int n);
+};
+
+DuploEncadeada::DuploEncadeada() {
+    quant = 0;
+    head = NULL;
+}
+
+void DuploEncadeada::insertD(Pessoa &p) {
+    NodoDuplo* novo = new NodoDuplo();
+    novo->setItemD(p);
+    novo->setProxD(head);
+    novo->setAnt(NULL);   	  | Como insere na 1 pos, o ant aponta pro nada.
+    if (quant > 0) {          | Agora, se tiver um nodo, 
+        head->setAnt(novo); }
+    head = novo;
+    quant++;
+}
+
+void DuploEncadeada::removeD() {
+    head = head->getProxD(); | head aponta pro próximo do primeiro, q é o endereço do segundo.
+    head->setAnt(NULL);      | Agora o primeiro da lista q era o segundo aponta pra nada.
+    quant--;                 | Ninguém aponta pro antigo primeiro, entao não existe.
+}
+
+void DuploEncadeada::insertposD(int pos, Pessoa &p) {
+    NodoDuplo* novo = new NodoDuplo();
+    novo->setItemD(p);
+    NodoDuplo* n = this->getElementoD(pos);
+    NodoDuplo* anterior = this->getElementoD(pos-1);
+    novo->setProxD(n);
+    novo->setAnt(anterior);
+    anterior->setProxD(novo);
+    n->setAnt(novo);
+    quant++;
+}
+
+void DuploEncadeada::removeposD(int n) {
+    NodoDuplo* anterior = this->getElementoD(n-1);
+    NodoDuplo* frente = this->getElementoD(n+1);
+    anterior->setProxD(frente);
+    frente->setAnt(anterior);
+    quant--;
+}
+
+NodoDuplo* DuploEncadeada::getElementoD(int n) {
+    NodoDuplo *p = head;
+    int i = 1;
+    while (i <= n-1 && p->getProxD() != NULL) {
+        p = p->getProxD();
+        i++;
+    } if (i == n) {
+        return p;
+    } else {
+        return NULL;
+}}
+
+NodoDuplo* DuploEncadeada::proximocircD(int n) {
+    NodoDuplo* elemento = getElementoD(n);
+    return elemento->getProxD();
+}
+
+NodoDuplo* DuploEncadeada::anteriorcircD(int n) {
+    NodoDuplo* elemento = this->getElementoD(n);
+    return elemento->getAnt();
+}
+
+
+int main() {
+    ListaContigua l(9);
+    Pessoa p1, p2, p3;
+
+    p1.setNome("Ana");
+    cout << "Nome de p1: " << p1.getNome();
+    
+    p2.preencher();
+    p2.imprimir();
+    p3.copiar(p2);
+    Pessoa p4(p1);
+
+    l.insert(p1,0);
+    l.insert(p2,0);
+    l.insert(p3,2);
+    l.insert(p4,3);
+
+    l.remove(3);
+    l.imprime();
+    l.bubbleSort(0);
+    cout << "O elemento procurado esta na posicao " << l.buscaBinaria(123);}
+
+	
+
