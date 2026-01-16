@@ -263,7 +263,7 @@ Consiste em uma função dentro de uma struct ou class.
      cout << "Seu saldo e " << cb.saldo;|
 
 
-		Programação Orientada a Objeto(POO)
+		Estruturas de dados
 Ao contrário da Programação Estruturada, gira em torno de classes e não funções, baseado na análise bottom-up e não na top-down.
 Herança: transmissão de recursos de uma superclasse/classe base pra classe filha/subclasse.
 
@@ -314,3 +314,4 @@ Contras: se o hash espalha mal, algumas listas ficam grandes.
 Usamos apenas o vetor; em colisão, procuramos a próxima posição livre (busca linear circular), tem 3 repositorios por posiçao.
 Prós: estrutura contígua (bom de cache), sem alocação de nós.
 Contras: pode gerar clusters (aglomerados) e exigir rehash com mais frequência.
+
