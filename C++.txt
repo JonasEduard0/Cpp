@@ -1,6 +1,5 @@
 				C++
-Há o comentário de uma linha(//) ou o de várias linhas(/*...*/).
-
+(Pode haver problemas de organização devido á transferência do .txt para .md)
 
 	Header file
 O arquivo.h é onde ficam as declarações de funções e classes POO, onde com #include "arquivo.h", no código .cpp, podemos incluir esse código ao nosso.
