@@ -7,20 +7,24 @@ double encontra_raiz(double low, double high){
     double funcao = pow(middle, 3)-middle-2;
     double fLow = pow(low, 3)-low-2;
 
-    if ( abs(funcao) <= E or funcao == 0) { return(middle); }
+    if ( fabs(funcao) <= E) { return(middle); }
 
-    if (funcao * (fLow-low-2) < 0) {
+    if (funcao * fLow < 0) {
         return(encontra_raiz(low, middle));
-    } else if(funcao * low > 0) {
-        return(encontra_raiz(middle, high)); }
+    } else if(funcao * fLow > 0) {
+        return(encontra_raiz(middle, high)); 
+    } else {
+        return middle;
+    }
+    
 }
 
 int main() {
-    double low = -1;
+    double low = 1;
     double high = 2;
     double pos = encontra_raiz(low, high);
-    
-    std::cout("\nRaiz = ", pos);
-    
+
+    std::cout << "Raiz = " << pos;
+
     return 0;
 }
