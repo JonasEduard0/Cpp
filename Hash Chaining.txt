@@ -1,8 +1,0 @@
-		Hash Chaining
-Chaining: Quando ocorre uma colisão em uma tabela hash, em vez de procurar outra posição da tabela, armazenamos os elementos que colidiram em uma ArrayList.
-Função Hash: É a função que transforma uma chave em posição.
-
-m: Quantidade de posições da tabela; n: Quantidade de elementos armazenados; 
-
-α: Fator de carga, ex: n=20 m=10 então α=n/m=2, então 2 elementos por posição em média. 
-Θ(1 + α), 1 para calcular o hash α para percorrer a lista. Se α for pequeno O(1), por isso Hash é tão eficiente.
