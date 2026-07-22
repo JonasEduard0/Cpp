@@ -42,8 +42,7 @@ O repositório é dividido em duas partes principais:
   ## 🔹 Fundamentos de C++
 * Sintaxe básica
 * Tipos de dados
-* Estruturas condicionais
-* Estruturas de repetição
+* Estruturas condicionais, de repetição
 * Funções
 * Recursão
 * Manipulação de memória
