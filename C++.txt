@@ -314,6 +314,15 @@ Usamos apenas o vetor; em colisão, procuramos a próxima posição livre (busca
 Prós: estrutura contígua (bom de cache), sem alocação de nós.
 Contras: pode gerar clusters (aglomerados) e exigir rehash com mais frequência.
 
+		Hash Chaining
+Chaining: Quando ocorre uma colisão em uma tabela hash, em vez de procurar outra posição da tabela, armazenamos os elementos que colidiram em uma ArrayList.
+Função Hash: É a função que transforma uma chave em posição.
+
+m: Quantidade de posições da tabela; n: Quantidade de elementos armazenados; 
+
+α: Fator de carga, ex: n=20 m=10 então α=n/m=2, então 2 elementos por posição em média. 
+Θ(1 + α), 1 para calcular o hash α para percorrer a lista. Se α for pequeno O(1), por isso Hash é tão eficiente.
+
 
 		Big-O Notation e Complexidade de algoritmos
 Forma de descrever como o custo(tempo/memória) de um algoritmo cresce quando a entrada aumenta. 
